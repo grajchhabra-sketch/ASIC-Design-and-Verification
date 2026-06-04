@@ -53,9 +53,7 @@ class axi_driver extends uvm_driver #(axi_txn);
 
     int timeout;
 
-    //--------------------------------
-    // AW CHANNEL
-    //--------------------------------
+
 
     @(posedge vif.clk);
 
@@ -80,10 +78,6 @@ class axi_driver extends uvm_driver #(axi_txn);
     vif.awvalid <= 0;
 
 
-    //--------------------------------
-    // W CHANNEL
-    //--------------------------------
-
     @(posedge vif.clk);
 
     vif.wdata  <= tx.data;
@@ -101,11 +95,6 @@ class axi_driver extends uvm_driver #(axi_txn);
       `uvm_fatal("DRV","WREADY timeout")
 
     vif.wvalid <= 0;
-
-
-    //--------------------------------
-    // B CHANNEL
-    //--------------------------------
 
     @(posedge vif.clk);
 
@@ -141,9 +130,6 @@ class axi_driver extends uvm_driver #(axi_txn);
 
     int timeout;
 
-    //--------------------------------
-    // AR CHANNEL
-    //--------------------------------
 
     @(posedge vif.clk);
 
@@ -167,10 +153,6 @@ class axi_driver extends uvm_driver #(axi_txn);
 
     vif.arvalid <= 0;
 
-
-    //--------------------------------
-    // R CHANNEL
-    //--------------------------------
 
     @(posedge vif.clk);
 
