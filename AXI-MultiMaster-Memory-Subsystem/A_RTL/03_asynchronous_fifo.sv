@@ -1,5 +1,6 @@
+ 
   // ASYNCHRONOUS FIFO
-module asyn_fifo#(parameter data_width = 67,
+  module asyn_fifo#(parameter data_width = 67,
                   parameter addr_width = 4)(
   
   input wr_clk,
@@ -155,5 +156,3 @@ module asyn_fifo#(parameter data_width = 67,
         
       
 endmodule
-          
-        
