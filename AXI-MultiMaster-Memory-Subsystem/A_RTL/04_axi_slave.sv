@@ -1,9 +1,12 @@
- // AXI SLAVE
-module axi_slave #(
+        
+     // AXI SLAVE
+module axi_slave
+#(
     parameter ADDR_WIDTH = 32,
     parameter DATA_WIDTH = 32,
-    parameter DEPTH      = 256 )(
-
+    parameter DEPTH      = 256
+)
+(
     input clk,
     input reset,
 
@@ -168,4 +171,3 @@ assert property(p_rvalid_until_rready)
   else $error("RVALID dropped before RREADY");
   
 endmodule
-  
