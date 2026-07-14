@@ -1,3 +1,4 @@
+module id_ex(
     input clk,
     input reset,
     input flush,
@@ -121,5 +122,13 @@
 
         end
     end
+  
+  property p_idex_flush_zero_ctrl;
+  @(posedge clk)
+    (reset || flush) |=> (reg_write_out == 0 && mem_read_out == 0 &&
+                          mem_write_out == 0 && branch_out == 0 && jump_out == 0);
+endproperty
+assert property(p_idex_flush_zero_ctrl)
+  else $error("ID/EX did not clear control signals on flush/reset");
 
 endmodule
