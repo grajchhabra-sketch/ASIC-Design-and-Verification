@@ -172,3 +172,4 @@ module branch_target_adder(
 assign branch_target = pc + imm;
 
 endmodule
+
