@@ -11,7 +11,6 @@ module ex_mem(
     // Destination register
     input  [4:0]  rd_in,
 
-    // Instruction field — needed by data_memory
     input  [2:0]  funct3_in,
 
     // PC+4 for JAL/JALR writeback
@@ -83,5 +82,12 @@ module ex_mem(
 
         end
     end
+  
+  property p_no_simultaneous_mem_rw;
+  @(posedge clk) disable iff(reset)
+    !(mem_read_in && mem_write_in);
+endproperty
+assert property(p_no_simultaneous_mem_rw)
+  else $error("Simultaneous mem_read and mem_write detected");
 
 endmodule
